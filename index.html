@@ -4,34 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- ✅ Title must contain "Temple" and "Album" -->
+  <!-- ✅ Title must contain Temple + Album -->
   <title>Temple Album – WDD 131 – Stallone Adu Baffour</title>
 
-  <!-- ✅ Description: 50–160 chars & unique to this page -->
+  <!-- ✅ Description 50–160 chars & unique -->
   <meta name="description" content="Temple Album for WDD 131: a responsive gallery of temple images with filters for old, new, large, and small temples.">
 
   <!-- ✅ Author is your name -->
   <meta name="author" content="Stallone Adu Baffour">
 
-  <!-- Google Fonts (same as before) -->
+  <!-- ✅ Google Fonts with preconnects -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 
-  <!-- Base styles for the whole site -->
+  <!-- ✅ Local CSS files -->
   <link rel="stylesheet" href="styles/base.css">
-
-  <!-- ✅ Required assignment CSS files -->
   <link rel="stylesheet" href="styles/temples.css">
   <link rel="stylesheet" href="styles/temples-large.css">
 
-  <!-- JS -->
+  <!-- ✅ External JS only (no inline script tags) -->
   <script src="scripts/getdates.js" defer></script>
-  <!-- ✅ Required W02 script -->
   <script src="scripts/temples.js" defer></script>
 </head>
 <body>
-  <!-- ✅ Header inside body, before main, containing the text "Temple Album" -->
+  <!-- ✅ header inside body, before main, with "Temple Album" text -->
   <header class="site-header">
     <div class="brand">
       <div class="logo" aria-hidden="true"></div>
@@ -50,63 +47,67 @@
     </nav>
   </header>
 
+  <!-- ✅ main between header and footer -->
   <main class="wrapper">
-    <!-- ✅ h1 inside main with your name (audit already expects this) -->
+    <!-- ✅ single h1 inside main with your name -->
     <h1>Stallone Adu Baffour</h1>
 
-    <!-- ✅ At least 9 figures with figcaptions -->
+    <!-- ✅ At least 9 figure elements with figcaption -->
     <section class="gallery" aria-label="Temple photo gallery">
       <figure class="temple old large">
-        <img src="images/temple-1.webp" alt="Temple at golden hour with palm trees">
+        <img src="images/album-1.webp" alt="Golden-hour temple facade with palm trees.">
         <figcaption>Temple – Golden Hour</figcaption>
       </figure>
 
       <figure class="temple new small">
-        <img src="images/temple-2.webp" alt="White temple spire against blue sky">
+        <img src="images/album-2.webp" alt="White stone temple with spire and blue sky.">
         <figcaption>Temple – Spire &amp; Sky</figcaption>
       </figure>
 
       <figure class="temple old small">
-        <img src="images/temple-3.webp" alt="Temple entrance with reflecting pool">
+        <img src="images/album-3.webp" alt="Temple entrance with reflecting pool in front.">
         <figcaption>Temple – Reflecting Pool</figcaption>
       </figure>
 
       <figure class="temple new large">
-        <img src="images/temple-4.webp" alt="Temple and surrounding gardens">
+        <img src="images/album-4.webp" alt="Temple grounds with carefully trimmed hedges.">
         <figcaption>Temple – Garden Grounds</figcaption>
       </figure>
 
       <figure class="temple old large">
-        <img src="images/temple-5.webp" alt="Temple silhouette at sunset">
+        <img src="images/album-5.webp" alt="Temple silhouette at sunset.">
         <figcaption>Temple – Sunset Silhouette</figcaption>
       </figure>
 
       <figure class="temple new small">
-        <img src="images/temple-6.webp" alt="Close-up of ornate temple window">
+        <img src="images/album-6.webp" alt="Close-up of ornate temple window.">
         <figcaption>Temple – Ornate Window</figcaption>
       </figure>
 
+      <!-- For W02 you need at least 9 figures. 
+           You can reuse images (it’s allowed) if you don’t have more files yet. -->
+
       <figure class="temple old small">
-        <img src="images/temple-7.webp" alt="Temple with mountains in the background">
-        <figcaption>Temple – Mountain View</figcaption>
+        <img src="images/album-1.webp" alt="Golden-hour temple facade with palm trees.">
+        <figcaption>Temple – Evening Facade</figcaption>
       </figure>
 
       <figure class="temple new large">
-        <img src="images/temple-8.webp" alt="Temple with wide front plaza">
-        <figcaption>Temple – Plaza Approach</figcaption>
+        <img src="images/album-2.webp" alt="White stone temple with spire and blue sky.">
+        <figcaption>Temple – Bright Morning</figcaption>
       </figure>
 
       <figure class="temple old small">
-        <img src="images/temple-9.webp" alt="Temple surrounded by palm trees at dusk">
-        <figcaption>Temple – Evening Palms</figcaption>
+        <img src="images/album-3.webp" alt="Temple entrance with reflecting pool in front.">
+        <figcaption>Temple – Quiet Reflection</figcaption>
       </figure>
     </section>
 
     <section class="content">
       <h2>About This Temple Album</h2>
       <p>
-        This Temple Album was created for the WDD 131 W02 assignment. It uses a responsive grid,
-        navigation filters, and optimized images to showcase different temples.
+        This Temple Album was created for the WDD 131 W02 Picture Album assignment.
+        It demonstrates a responsive image gallery, navigation filters, and optimized temple images.
       </p>
     </section>
   </main>

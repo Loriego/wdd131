@@ -1,6 +1,6 @@
 /* styles/temples.css */
 
-/* Page wrapper width */
+/* Limit main width */
 main.wrapper {
   width: min(100%, 72rem);
   margin-inline: auto;
@@ -8,7 +8,7 @@ main.wrapper {
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-/* Header & nav layout */
+/* Header and brand */
 .site-header {
   display: flex;
   align-items: center;
@@ -28,7 +28,7 @@ main.wrapper {
   font-size: 1.25rem;
 }
 
-/* ✅ Flex on nav */
+/* ✅ Flexbox on nav */
 .nav {
   display: flex;
 }
@@ -49,13 +49,13 @@ main.wrapper {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-/* ✅ :hover on navigation elements */
+/* ✅ :hover on nav links */
 .nav a:hover {
   background-color: #0d6efd;
   color: #ffffff;
 }
 
-/* ✅ Grid for the album */
+/* ✅ Grid for gallery */
 .gallery {
   display: grid;
   grid-template-columns: 1fr;
@@ -84,12 +84,10 @@ main.wrapper {
   font-weight: 700;
 }
 
-/* Extra content section */
 .content {
   margin-bottom: 2rem;
 }
 
 .content h2 {
   font-family: "Merriweather", "Georgia", serif;
-  margin-bottom: 0.5rem;
 }
