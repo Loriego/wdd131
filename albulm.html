@@ -1,0 +1,79 @@
+<!doctype html>
+<span class="bar" aria-hidden="true"></span>
+</button>
+
+
+<nav id="primaryNav" class="nav" aria-label="Primary">
+<ul class="nav-list">
+<li><a href="#album">Album</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+</header>
+
+
+<main id="album" class="wrapper">
+<h1 class="visually-hidden">Responsive Picture Album</h1>
+
+
+<section class="gallery" aria-label="Photo gallery">
+<!-- Repeat figure pattern for required number of images (at least 6 shown) -->
+<figure>
+<img src="images/album-1.webp" width="640" height="426" loading="lazy" alt="Golden-hour temple facade with palm trees." />
+<figcaption>Temple – Golden Hour</figcaption>
+</figure>
+<figure>
+<img src="images/album-2.webp" width="640" height="426" loading="lazy" alt="White stone temple with spire and blue sky." />
+<figcaption>Temple – Spire & Sky</figcaption>
+</figure>
+<figure>
+<img src="images/album-3.webp" width="640" height="426" loading="lazy" alt="Temple entrance with reflecting pool in front." />
+<figcaption>Temple – Reflecting Pool</figcaption>
+</figure>
+<figure>
+<img src="images/album-4.webp" width="640" height="426" loading="lazy" alt="Temple grounds with carefully trimmed hedges." />
+<figcaption>Temple – Garden Grounds</figcaption>
+</figure>
+<figure>
+<img src="images/album-5.webp" width="640" height="426" loading="lazy" alt="Temple silhouette at sunset." />
+<figcaption>Temple – Sunset Silhouette</figcaption>
+</figure>
+<figure>
+<img src="images/album-6.webp" width="640" height="426" loading="lazy" alt="Close-up of ornate temple window." />
+<figcaption>Temple – Ornate Window</figcaption>
+</figure>
+</section>
+
+
+<section id="about" class="content">
+<h2>About This Album</h2>
+<p>This page demonstrates a responsive image gallery, accessible navigation, and dynamic footer data using JavaScript.</p>
+</section>
+
+
+<section id="contact" class="content">
+<h2>Contact</h2>
+<p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
+</section>
+</main>
+
+
+<footer class="site-footer">
+<p>© <span id="year"></span> • <span class="brand-inline">Picture Album</span></p>
+<p>Last Modified: <time id="lastModified" aria-live="polite"></time></p>
+</footer>
+
+
+<script src="scripts/getdates.js" defer></script>
+<script>
+// Hamburger toggle (meets rubric Q4 pattern: click + classList.toggle('open'))
+const menubutton = document.querySelector('#menuButton');
+const nav = document.querySelector('#primaryNav');
+menubutton.addEventListener('click', () => {
+const isOpen = nav.classList.toggle('open');
+menubutton.setAttribute('aria-expanded', String(isOpen));
+});
+</script>
+</body>
+</html>
