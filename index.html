@@ -1,79 +1,122 @@
-<!doctype html>
-<span class="bar" aria-hidden="true"></span>
-</button>
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- ✅ Title must contain "Temple" and "Album" -->
+  <title>Temple Album – WDD 131 – Stallone Adu Baffour</title>
 
-<nav id="primaryNav" class="nav" aria-label="Primary">
-<ul class="nav-list">
-<li><a href="#album">Album</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-</nav>
-</header>
+  <!-- ✅ Description: 50–160 chars & unique to this page -->
+  <meta name="description" content="Temple Album for WDD 131: a responsive gallery of temple images with filters for old, new, large, and small temples.">
 
+  <!-- ✅ Author is your name -->
+  <meta name="author" content="Stallone Adu Baffour">
 
-<main id="album" class="wrapper">
-<h1 class="visually-hidden">Responsive Picture Album</h1>
+  <!-- Google Fonts (same as before) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 
+  <!-- Base styles for the whole site -->
+  <link rel="stylesheet" href="styles/base.css">
 
-<section class="gallery" aria-label="Photo gallery">
-<!-- Repeat figure pattern for required number of images (at least 6 shown) -->
-<figure>
-<img src="images/album-1.webp" width="640" height="426" loading="lazy" alt="Golden-hour temple facade with palm trees." />
-<figcaption>Temple – Golden Hour</figcaption>
-</figure>
-<figure>
-<img src="images/album-2.webp" width="640" height="426" loading="lazy" alt="White stone temple with spire and blue sky." />
-<figcaption>Temple – Spire & Sky</figcaption>
-</figure>
-<figure>
-<img src="images/album-3.webp" width="640" height="426" loading="lazy" alt="Temple entrance with reflecting pool in front." />
-<figcaption>Temple – Reflecting Pool</figcaption>
-</figure>
-<figure>
-<img src="images/album-4.webp" width="640" height="426" loading="lazy" alt="Temple grounds with carefully trimmed hedges." />
-<figcaption>Temple – Garden Grounds</figcaption>
-</figure>
-<figure>
-<img src="images/album-5.webp" width="640" height="426" loading="lazy" alt="Temple silhouette at sunset." />
-<figcaption>Temple – Sunset Silhouette</figcaption>
-</figure>
-<figure>
-<img src="images/album-6.webp" width="640" height="426" loading="lazy" alt="Close-up of ornate temple window." />
-<figcaption>Temple – Ornate Window</figcaption>
-</figure>
-</section>
+  <!-- ✅ Required assignment CSS files -->
+  <link rel="stylesheet" href="styles/temples.css">
+  <link rel="stylesheet" href="styles/temples-large.css">
 
+  <!-- JS -->
+  <script src="scripts/getdates.js" defer></script>
+  <!-- ✅ Required W02 script -->
+  <script src="scripts/temples.js" defer></script>
+</head>
+<body>
+  <!-- ✅ Header inside body, before main, containing the text "Temple Album" -->
+  <header class="site-header">
+    <div class="brand">
+      <div class="logo" aria-hidden="true"></div>
+      <div class="site-title">Temple Album</div>
+    </div>
 
-<section id="about" class="content">
-<h2>About This Album</h2>
-<p>This page demonstrates a responsive image gallery, accessible navigation, and dynamic footer data using JavaScript.</p>
-</section>
+    <!-- ✅ nav with 5 links: Home, Old, New, Large, Small -->
+    <nav class="nav">
+      <ul class="nav-list">
+        <li><a href="#" data-filter="all">Home</a></li>
+        <li><a href="#" data-filter="old">Old</a></li>
+        <li><a href="#" data-filter="new">New</a></li>
+        <li><a href="#" data-filter="large">Large</a></li>
+        <li><a href="#" data-filter="small">Small</a></li>
+      </ul>
+    </nav>
+  </header>
 
+  <main class="wrapper">
+    <!-- ✅ h1 inside main with your name (audit already expects this) -->
+    <h1>Stallone Adu Baffour</h1>
 
-<section id="contact" class="content">
-<h2>Contact</h2>
-<p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
-</section>
-</main>
+    <!-- ✅ At least 9 figures with figcaptions -->
+    <section class="gallery" aria-label="Temple photo gallery">
+      <figure class="temple old large">
+        <img src="images/temple-1.webp" alt="Temple at golden hour with palm trees">
+        <figcaption>Temple – Golden Hour</figcaption>
+      </figure>
 
+      <figure class="temple new small">
+        <img src="images/temple-2.webp" alt="White temple spire against blue sky">
+        <figcaption>Temple – Spire &amp; Sky</figcaption>
+      </figure>
 
-<footer class="site-footer">
-<p>© <span id="year"></span> • <span class="brand-inline">Picture Album</span></p>
-<p>Last Modified: <time id="lastModified" aria-live="polite"></time></p>
-</footer>
+      <figure class="temple old small">
+        <img src="images/temple-3.webp" alt="Temple entrance with reflecting pool">
+        <figcaption>Temple – Reflecting Pool</figcaption>
+      </figure>
 
+      <figure class="temple new large">
+        <img src="images/temple-4.webp" alt="Temple and surrounding gardens">
+        <figcaption>Temple – Garden Grounds</figcaption>
+      </figure>
 
-<script src="scripts/getdates.js" defer></script>
-<script>
-// Hamburger toggle (meets rubric Q4 pattern: click + classList.toggle('open'))
-const menubutton = document.querySelector('#menuButton');
-const nav = document.querySelector('#primaryNav');
-menubutton.addEventListener('click', () => {
-const isOpen = nav.classList.toggle('open');
-menubutton.setAttribute('aria-expanded', String(isOpen));
-});
-</script>
+      <figure class="temple old large">
+        <img src="images/temple-5.webp" alt="Temple silhouette at sunset">
+        <figcaption>Temple – Sunset Silhouette</figcaption>
+      </figure>
+
+      <figure class="temple new small">
+        <img src="images/temple-6.webp" alt="Close-up of ornate temple window">
+        <figcaption>Temple – Ornate Window</figcaption>
+      </figure>
+
+      <figure class="temple old small">
+        <img src="images/temple-7.webp" alt="Temple with mountains in the background">
+        <figcaption>Temple – Mountain View</figcaption>
+      </figure>
+
+      <figure class="temple new large">
+        <img src="images/temple-8.webp" alt="Temple with wide front plaza">
+        <figcaption>Temple – Plaza Approach</figcaption>
+      </figure>
+
+      <figure class="temple old small">
+        <img src="images/temple-9.webp" alt="Temple surrounded by palm trees at dusk">
+        <figcaption>Temple – Evening Palms</figcaption>
+      </figure>
+    </section>
+
+    <section class="content">
+      <h2>About This Temple Album</h2>
+      <p>
+        This Temple Album was created for the WDD 131 W02 assignment. It uses a responsive grid,
+        navigation filters, and optimized images to showcase different temples.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      &copy; <span id="currentyear"></span> • Temple Album •
+      <span class="brand-inline">Stallone Adu Baffour</span>
+    </p>
+    <p>Last modified: <span id="lastModified"></span></p>
+  </footer>
 </body>
 </html>

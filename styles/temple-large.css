@@ -1,0 +1,19 @@
+/* styles/temples-large.css */
+
+/* ✅ Required media queries */
+
+@media (min-width: 600px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1000px) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  main.wrapper {
+    padding: 2rem 0;
+  }
+}
