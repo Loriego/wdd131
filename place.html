@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Discover Ghana | WDD 131 Country Page</title>
+  <meta name="description" content="A responsive country page about Ghana including current conditions, wind chill, and travel highlights." />
+  <link rel="stylesheet" href="styles/base.css" />
+  <script defer src="scripts/getdates.js"></script>
+  <script defer src="scripts/place.js"></script>
+</head>
+<body>
+  <header>
+    <nav class="navigation">
+      <button id="menu-button" aria-label="Toggle navigation menu">☰</button>
+      <ul id="menu" class="nav-links hide">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="temples.html">Temples</a></li>
+        <li><a href="place.html" class="active">Ghana</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero hero-country">
+      <div class="hero-media">
+        <!-- Hero image swap using srcset (mobile vs large) - WEBP only -->
+        <img
+          class="hero-image"
+          src="images/ghana-hero-small.webp"
+          srcset="
+            images/ghana-hero-small.webp 600w,
+            images/ghana-hero-large.webp 1200w
+          "
+          sizes="(min-width: 768px) 1200px, 100vw"
+          alt="Coast of Ghana with palm trees and golden sky"
+          width="1200"
+          height="600"
+          loading="lazy"
+        />
+      </div>
+      <div class="hero-text">
+        <h1>Discover Ghana</h1>
+        <p>
+          Ghana is a vibrant West African nation known for its warm people,
+          colorful culture, and rich coastal history.
+        </p>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <!-- Country info / design section -->
+    <section class="country-intro">
+      <h2>Why Visit Ghana?</h2>
+      <p>
+        From the bustling city of Accra to the serene Cape Coast castles and
+        lush national parks, Ghana offers a unique mix of history, music, art,
+        and nature. Visitors enjoy lively markets, incredible food, and a
+        welcoming atmosphere.
+      </p>
+      <div class="country-grid">
+        <article>
+          <h3>Capital City</h3>
+          <p>Accra, a coastal city famous for its beaches, arts, and nightlife.</p>
+        </article>
+        <article>
+          <h3>Official Language</h3>
+          <p>English (with many local languages such as Twi, Ga, and Ewe).</p>
+        </article>
+        <article>
+          <h3>Fun Fact</h3>
+          <p>Ghana was the first sub-Saharan African country to gain independence (1957).</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Weather / conditions section -->
+    <section class="conditions">
+      <div class="conditions-header">
+        <h2 class="conditions-title">Current Conditions in Accra</h2>
+
+        <!-- SVG ICON: shows in MOBILE view only (controlled by CSS) -->
+        <img
+          src="images/weather.svg"
+          class="weather-icon"
+          alt="Sunny weather icon"
+          width="60"
+          height="60"
+        />
+      </div>
+
+      <div class="conditions-grid">
+        <p><span class="label">Temperature:</span> <span id="temp">30</span> °C</p>
+        <p><span class="label">Wind Speed:</span> <span id="wind-speed">18</span> km/h</p>
+        <p><span class="label">Wind Chill:</span> <span id="windchill">N/A</span></p>
+        <p><span class="note">Wind chill is only calculated if the conditions allow it.</span></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Stallone Adu Baffour | WDD 131</p>
+    <p>Last Modified: <span id="last-modified"></span></p>
+  </footer>
+</body>
+</html>
