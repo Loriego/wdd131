@@ -1,96 +1,239 @@
-:root {
---bg: #ffffff;
---text: #111111;
---accent: #0d6efd; /* AA contrast on white */
---muted: #666666;
---card: #f7f7f8;
---shadow: 0 1px 3px rgba(0,0,0,.08), 0 4px 12px rgba(0,0,0,.06);
+/* =============================
+   Global Base Styles
+   ============================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html,
 body {
-margin: 0;
-font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-color: var(--text);
-background: var(--bg);
-line-height: 1.5;
+  margin: 0;
+  padding: 0;
 }
 
-
-.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
-
-
-.wrapper { width: min(100%, 72rem); margin-inline: auto; padding: 1rem; }
-
-
-/* Header & Nav */
-.site-header {
-position: sticky; top: 0; z-index: 50;
-display: grid; grid-template-columns: auto auto 1fr; align-items: center; gap: .5rem;
-background: var(--bg); box-shadow: var(--shadow); padding: .5rem 1rem;
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  line-height: 1.6;
+  background-color: #f3f4f6; /* light gray */
+  color: #111827;            /* very dark text */
 }
-.brand { display: inline-flex; align-items: center; gap: .5rem; }
-.logo { display: inline-grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: .5rem; background: var(--card); text-decoration: none; }
-.site-title { font-weight: 700; letter-spacing: .2px; }
 
-
-.hamburger { border: 0; background: transparent; padding: .5rem; border-radius: .5rem; cursor: pointer; }
-.hamburger:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.hamburger .bar { display: block; width: 24px; height: 2px; background: var(--text); margin: 4px 0; }
-
-
-.nav { justify-self: end; }
-.nav-list { list-style: none; margin: 0; padding: 0; display: none; flex-direction: column; gap: .25rem; }
-.nav.open .nav-list { display: flex; }
-.nav a { text-decoration: none; color: var(--text); padding: .5rem .75rem; border-radius: .375rem; }
-.nav a:hover, .nav a:focus-visible { background: var(--card); outline: none; }
-
-
-/* Gallery */
-.gallery {
-display: grid; gap: 1rem; margin-block: 1rem 2rem;
-grid-template-columns: 1fr; /* mobile first */
+/* Layout containers */
+header,
+main,
+footer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
-figure { margin: 0; background: var(--card); border-radius: .75rem; overflow: clip; box-shadow: var(--shadow); }
-figure img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
-figcaption { padding: .75rem 1rem; color: var(--muted); font-size: .95rem; }
 
+img {
+  max-width: 100%;
+  display: block;
+}
 
-/* Content sections */
-.content { margin-block: 2rem; background: var(--card); padding: 1rem; border-radius: .75rem; box-shadow: var(--shadow); }
-.content a { color: var(--accent); }
-.content a:hover, .content a:focus-visible { text-decoration: underline; }
+/* Headings */
+h1,
+h2,
+h3 {
+  color: #111827;
+  margin-top: 0;
+}
 
+/* Links */
+a {
+  color: #0369a1; /* blue */
+}
 
-/* Footer */
-.site-footer { padding: 1.25rem; text-align: center; color: var(--muted); }
-.brand-inline { font-weight: 600; }
+a:hover {
+  text-decoration: underline;
+}
 
+/* =============================
+   Navigation
+   ============================= */
 
-/* Keep images responsive and avoid layout shift */
-img { max-width: 100%; height: auto; }
-/* =========================
-   W03 Country Page Styles
-   ========================= */
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  margin: 0 auto;
+  max-width: 1200px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
 
+#menu-button {
+  font-size: 1.75rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #111827;
+  padding: 0.25rem 0.5rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #374151;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  transition: background-color 0.15s ease, color 0.15s ease,
+    transform 0.15s ease;
+}
+
+/* Hover effect (rubric item) */
+.nav-links a:hover {
+  background-color: #e0f2fe; /* light blue */
+  color: #0c4a6e;
+  transform: translateY(-1px);
+}
+
+.nav-links a.active {
+  background-color: #0ea5e9; /* sky-500 */
+  color: #ffffff;
+}
+
+/* Mobile nav visibility classes */
+.hide {
+  display: none;
+}
+
+.show {
+  display: flex;
+}
+
+/* Mobile layout: stack links, show hamburger */
+@media (max-width: 640px) {
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding: 0.75rem 0;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+  }
+}
+
+/* Desktop layout: always show links, hide button */
+@media (min-width: 641px) {
+  #menu-button {
+    display: none;
+  }
+
+  .nav-links {
+    display: flex !important;
+  }
+}
+
+/* =============================
+   Generic Hero (used on multiple pages)
+   ============================= */
+
+.hero {
+  padding: 2.5rem 0 1.5rem;
+}
+
+.hero-text {
+  text-align: center;
+}
+
+.hero-text h1 {
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  margin-bottom: 0.5rem;
+}
+
+.hero-text p {
+  max-width: 40rem;
+  margin: 0.25rem auto 0;
+  color: #4b5563;
+}
+
+/* =============================
+   W02: Picture Album (temples)
+   ============================= */
+
+.intro {
+  margin: 2.5rem 0 1.25rem;
+}
+
+.intro h2 {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.intro p {
+  max-width: 42rem;
+  color: #4b5563;
+}
+
+.album {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.album figure {
+  background-color: #ffffff;
+  border-radius: 0.9rem;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
+  border: 1px solid #e5e7eb;
+}
+
+.album img {
+  width: 100%;
+  height: auto;
+}
+
+.album figcaption {
+  padding: 0.8rem 1rem 1rem;
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+/* =============================
+   W03: Country Page (Ghana)
+   ============================= */
+
+/* Hero layout with image + text */
 .hero-country {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-  gap: 1.5rem;
+  gap: 1.75rem;
   align-items: center;
-  margin-top: 1.5rem;
+  margin-top: 2rem;
 }
 
 .hero-media {
   border-radius: 1.25rem;
   overflow: hidden;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.18);
 }
 
 .hero-image {
-  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -100,28 +243,35 @@ img { max-width: 100%; height: auto; }
   text-align: left;
 }
 
-.hero-country .hero-text h1 {
-  font-size: clamp(2rem, 4vw, 2.75rem);
-  margin-bottom: 0.75rem;
-}
-
 .hero-country .hero-text p {
-  color: #cbd5f5;
+  color: #4b5563;
 }
 
-/* Country intro section */
+/* Stack hero on small screens */
+@media (max-width: 767px) {
+  .hero-country {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-country .hero-text {
+    text-align: center;
+  }
+}
+
+/* Country intro & cards */
 
 .country-intro {
-  margin: 2.5rem 0 2rem;
+  margin: 2.75rem 0 2rem;
 }
 
 .country-intro h2 {
   font-size: 1.8rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 .country-intro p {
   max-width: 42rem;
+  color: #4b5563;
 }
 
 .country-grid {
@@ -132,10 +282,12 @@ img { max-width: 100%; height: auto; }
 }
 
 .country-grid article {
-  background-color: #020617;
-  border-radius: 0.75rem;
-  padding: 1rem 1.25rem;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+  background-color: #ffffff;
+  color: #111827;
+  border-radius: 1rem;
+  padding: 1rem 1.3rem;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+  border: 1px solid #e5e7eb;
 }
 
 .country-grid h3 {
@@ -143,14 +295,16 @@ img { max-width: 100%; height: auto; }
   margin-bottom: 0.35rem;
 }
 
-/* Conditions section */
+/* Conditions / weather box */
 
 .conditions {
   margin-bottom: 3rem;
-  padding: 1.5rem 1.25rem 2rem;
-  background: radial-gradient(circle at top left, #0f172a, #020617);
-  border-radius: 1.25rem;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+  margin-top: 2rem;
+  padding: 1.5rem 1.3rem 1.75rem;
+  background: #ffffff;
+  border-radius: 1.2rem;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.14);
+  border: 1px solid #e5e7eb;
 }
 
 .conditions-header {
@@ -158,28 +312,30 @@ img { max-width: 100%; height: auto; }
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.9rem;
 }
 
 .conditions-title {
   margin: 0;
 }
 
-/* SVG WEATHER ICON
-   - visible on mobile (default)
-   - hidden on wider view via media query (SVG mobile-only requirement)
+/* SVG weather icon:
+   - Visible on small screens (mobile)
+   - Hidden on wider view (desktop/tablet)
 */
 .weather-icon {
+  width: 48px;
+  height: 48px;
   display: block;
 }
 
 /* Conditions details */
-
 .conditions-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 0.75rem 1.5rem;
-  font-size: 0.98rem;
+  font-size: 0.97rem;
+  color: #374151;
 }
 
 .label {
@@ -188,40 +344,33 @@ img { max-width: 100%; height: auto; }
 
 .note {
   font-size: 0.85rem;
-  color: #9ca3af;
+  color: #6b7280;
 }
 
-/* Pseudo-element emoticon: wider view only */
-
+/* Wider view: hide SVG, add emoticon pseudo-element */
 @media (min-width: 768px) {
-  .hero-country {
-    margin-top: 2.5rem;
-  }
-
-  /* Hide SVG weather icon on wider view */
   .weather-icon {
     display: none;
   }
 
-  /* Add emoticon after title only on wider view */
+  /* Pseudo-element emoticon (desktop only) */
   .conditions-title::after {
     content: " 🙂";
     margin-left: 0.35rem;
   }
 }
 
-/* Mobile adjustments */
+/* =============================
+   Footer
+   ============================= */
 
-@media (max-width: 767px) {
-  .hero-country {
-    grid-template-columns: 1fr;
-  }
+footer {
+  padding: 1.75rem 1rem 2.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
 
-  .hero-country .hero-text {
-    text-align: center;
-  }
-
-  .country-grid {
-    margin-top: 1.25rem;
-  }
+footer span {
+  font-weight: 500;
 }
