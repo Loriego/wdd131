@@ -4,7 +4,7 @@ function getTempleImage(templeName) {
   return `https://via.placeholder.com/600x400?text=${text}`;
 }
 
-// Temple data: 7 original + 3 added (10 total)
+// Temple data: 7 originals + 3 added (10 total)
 const temples = [
   {
     templeName: "Accra Ghana Temple",
@@ -69,7 +69,7 @@ const temples = [
 ];
 
 const templesContainer = document.querySelector("#temples");
-const filterButtons = document.querySelectorAll(".filters a"); // links instead of buttons
+const filterButtons = document.querySelectorAll("nav.filters a"); // anchors in nav
 
 function formatDate(isoDateString) {
   const date = new Date(isoDateString);
@@ -150,7 +150,7 @@ function filterTemples(filter) {
 
 filterButtons.forEach((button) => {
   button.addEventListener("click", (event) => {
-    event.preventDefault(); // stop jump
+    event.preventDefault(); // avoid jump
     const selectedFilter = button.dataset.filter;
     filterTemples(selectedFilter);
 

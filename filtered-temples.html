@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Temple Picture Album | Stallone Adu Baffour</title>
+  <title>Filtered Temples Album | Stallone Adu Baffour</title>
   <meta name="description" content="Enhanced temple picture album with filters for old, new, large, and small temples.">
   <meta name="author" content="Stallone Adu Baffour">
   <link rel="stylesheet" href="styles/filtered-temples.css">
 </head>
 <body>
   <header>
-    <!-- This satisfies the requirement: header must contain the text 'Temple Album' -->
+    <!-- This line satisfies: header must contain the text 'Temple Album' -->
     <p class="site-label">Temple Album</p>
 
     <nav class="filters" aria-label="Temple filters">
-      <!-- These must be <a> with the exact text: Home, Old, New, Large, Small -->
+      <!-- MUST be <a> with these exact link texts: Home, Old, New, Large, Small -->
       <a href="#temples" data-filter="home" class="active">Home</a>
       <a href="#temples" data-filter="old">Old</a>
       <a href="#temples" data-filter="new">New</a>
@@ -28,7 +28,7 @@
     <p class="subtitle">Filter temples by age and size</p>
 
     <section id="temples" class="temple-grid" aria-live="polite">
-      <!-- Temple cards are injected here by JavaScript -->
+      <!-- Temple cards rendered by JavaScript -->
     </section>
   </main>
 

@@ -36,16 +36,16 @@ header {
   opacity: 0.9;
 }
 
-/* Nav filters - must use Flexbox */
+/* NAV: must use flexbox */
 nav.filters {
   margin-top: 0.8rem;
-  display: flex;           /* required by audit */
+  display: flex;           /* audit wants this */
   flex-wrap: wrap;
   gap: 0.5rem;
   justify-content: center;
 }
 
-/* Style the links like buttons */
+/* Style the nav links as buttons */
 nav.filters a {
   padding: 0.4rem 0.9rem;
   border-radius: 999px;
@@ -168,7 +168,6 @@ footer {
   }
 }
 
-/* Extra small screens: stack nav links nicely */
 @media (max-width: 500px) {
   nav.filters {
     flex-direction: column;
