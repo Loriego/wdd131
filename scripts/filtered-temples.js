@@ -4,7 +4,7 @@ function getTempleImage(templeName) {
   return `https://via.placeholder.com/600x400?text=${text}`;
 }
 
-// Temple data: 7 original + 3 added
+// Temple data: 7 original + 3 added (10 total)
 const temples = [
   {
     templeName: "Accra Ghana Temple",
@@ -69,7 +69,7 @@ const temples = [
 ];
 
 const templesContainer = document.querySelector("#temples");
-const filterButtons = document.querySelectorAll(".filters button");
+const filterButtons = document.querySelectorAll(".filters a"); // links instead of buttons
 
 function formatDate(isoDateString) {
   const date = new Date(isoDateString);
@@ -149,17 +149,19 @@ function filterTemples(filter) {
 }
 
 filterButtons.forEach((button) => {
-  button.addEventListener("click", () => {
+  button.addEventListener("click", (event) => {
+    event.preventDefault(); // stop jump
     const selectedFilter = button.dataset.filter;
     filterTemples(selectedFilter);
+
     filterButtons.forEach((btn) => btn.classList.remove("active"));
     button.classList.add("active");
   });
 });
 
-// initial render
+// Initial render
 renderTemples(temples);
 
-// footer info
+// Footer info
 document.querySelector("#currentyear").textContent = new Date().getFullYear();
 document.querySelector("#lastmodified").textContent = document.lastModified;
