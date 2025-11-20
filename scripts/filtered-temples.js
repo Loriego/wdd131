@@ -1,5 +1,8 @@
-// Temple data: 7 original + 3 new (example)
-// You can replace these with the exact ones from your previous assignment if needed.
+// A safe placeholder image if any temple image is missing or fails to load
+const PLACEHOLDER_IMAGE = "https://via.placeholder.com/600x400?text=Temple+Image";
+
+// Temple data: 7 original-style + 3 added
+// You can adjust names/locations if your instructor gave you specific ones.
 const temples = [
   {
     templeName: "Accra Ghana Temple",
@@ -50,7 +53,7 @@ const temples = [
     area: 18691,
     imageUrl: "https://assets.churchofjesuschrist.org/53/51/5351160f6f7a11e79dc2ac1e6e7c7d33a9a3a0b0/apia-samoa-temple-lds.jpg"
   },
-  // + 3 added by you (for rubric requirement)
+  // 3 temples you added (fulfills rubric requirement)
   {
     templeName: "Johannesburg South Africa Temple",
     location: "Johannesburg, South Africa",
@@ -90,16 +93,25 @@ function formatDate(isoDateString) {
 }
 
 /**
- * Create one temple card element
+ * Create a single temple card
  */
 function createTempleCard(temple) {
   const card = document.createElement("article");
   card.className = "temple-card";
 
   const img = document.createElement("img");
-  img.src = temple.imageUrl;
+
+  // If temple.imageUrl is empty or missing, use placeholder
+  img.src = temple.imageUrl || PLACEHOLDER_IMAGE;
   img.loading = "lazy";
   img.alt = `${temple.templeName} - ${temple.location}`;
+
+  // Fallback if original URL fails (404, etc.)
+  img.onerror = () => {
+    if (img.src !== PLACEHOLDER_IMAGE) {
+      img.src = PLACEHOLDER_IMAGE;
+    }
+  };
 
   const content = document.createElement("div");
   content.className = "temple-content";
@@ -138,7 +150,7 @@ function renderTemples(list) {
 }
 
 /**
- * Filter logic
+ * Filter logic for buttons
  */
 function filterTemples(filter) {
   let filtered = [];
@@ -161,7 +173,7 @@ function filterTemples(filter) {
       filtered = temples.filter((temple) => temple.area < 10000);
       break;
     default: // "home"
-      filtered = temples.slice(); // all
+      filtered = temples.slice();
       break;
   }
 
@@ -169,22 +181,21 @@ function filterTemples(filter) {
 }
 
 /**
- * Set up filter button events
+ * Set up filter buttons
  */
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const selectedFilter = button.dataset.filter;
     filterTemples(selectedFilter);
 
-    // Update active class for styling
     filterButtons.forEach((btn) => btn.classList.remove("active"));
     button.classList.add("active");
   });
 });
 
-// Initial render
+// Initial render (show all)
 renderTemples(temples);
 
-// Footer content
+// Footer info
 document.querySelector("#currentyear").textContent = new Date().getFullYear();
 document.querySelector("#lastmodified").textContent = document.lastModified;
