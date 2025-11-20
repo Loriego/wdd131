@@ -1,11 +1,10 @@
-// Use a placeholder image that always works
+// Generate a placeholder image with the temple name in it
 function getTempleImage(templeName) {
   const text = encodeURIComponent(templeName);
-  // This generates an image with the temple name written on it
   return `https://via.placeholder.com/600x400?text=${text}`;
 }
 
-// Temple data: 7 original + 3 you added
+// Temple data: 7 original + 3 added
 const temples = [
   {
     templeName: "Accra Ghana Temple",
@@ -49,7 +48,6 @@ const temples = [
     dedicated: "2005-09-04",
     area: 18691
   },
-  // + 3 extra temples (required by rubric)
   {
     templeName: "Johannesburg South Africa Temple",
     location: "Johannesburg, South Africa",
