@@ -32,13 +32,14 @@
 
           <div class="form-control">
             <label for="product">Product</label>
-            <select id="product" name="product" required>
-              <option value="">Choose a product…</option>
-              <option value="mlg-shipping">Multi-Logistics Ghana – Shipping Service</option>
-              <option value="mlg-clearance">Multi-Logistics Ghana – Port Clearance</option>
-              <option value="mlg-tracking">Multi-Logistics Ghana – Tracking Portal</option>
-              <option value="other">Other Product</option>
-            </select>
+           <select id="product" name="product" required>
+  <option value="" disabled selected>Select a Product ...</option>
+  <option value="mlg-shipping">Multi-Logistics Ghana – Shipping Service</option>
+  <option value="mlg-clearance">Multi-Logistics Ghana – Port Clearance</option>
+  <option value="mlg-tracking">Multi-Logistics Ghana – Tracking Portal</option>
+  <option value="other">Other Product</option>
+</select>
+
           </div>
 
           <!-- DATE INPUT (REQUIRED) -->
@@ -60,31 +61,32 @@
           <p class="hint">Select one rating from 1 (Poor) to 5 (Excellent).</p>
 
           <div class="rating-group">
-            <div class="radio-control">
-              <input type="radio" id="rating1" name="rating" value="1" required>
-              <label for="rating1">1 – Poor</label>
-            </div>
+  <div class="radio-control">
+    <input type="radio" id="rating1" name="rating" value="1" required>
+    <label for="rating1">1 – Poor</label>
+  </div>
 
-            <div class="radio-control">
-              <input type="radio" id="rating2" name="rating" value="2">
-              <label for="rating2">2 – Fair</label>
-            </div>
+  <div class="radio-control">
+    <input type="radio" id="rating2" name="rating" value="2" required>
+    <label for="rating2">2 – Fair</label>
+  </div>
 
-            <div class="radio-control">
-              <input type="radio" id="rating3" name="rating" value="3">
-              <label for="rating3">3 – Good</label>
-            </div>
+  <div class="radio-control">
+    <input type="radio" id="rating3" name="rating" value="3" required>
+    <label for="rating3">3 – Good</label>
+  </div>
 
-            <div class="radio-control">
-              <input type="radio" id="rating4" name="rating" value="4">
-              <label for="rating4">4 – Very Good</label>
-            </div>
+  <div class="radio-control">
+    <input type="radio" id="rating4" name="rating" value="4" required>
+    <label for="rating4">4 – Very Good</label>
+  </div>
 
-            <div class="radio-control">
-              <input type="radio" id="rating5" name="rating" value="5">
-              <label for="rating5">5 – Excellent</label>
-            </div>
-          </div>
+  <div class="radio-control">
+    <input type="radio" id="rating5" name="rating" value="5" required>
+    <label for="rating5">5 – Excellent</label>
+  </div>
+</div>
+
         </fieldset>
 
         <!-- CHECKBOXES (AT LEAST 4 REQUIRED) -->
