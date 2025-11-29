@@ -1,453 +1,153 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Multi-Logistics Ghana - Website Planning Document</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Typography: Montserrat for headings, Arial for body -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+    <!-- REQUIRED BY AUDIT -->
+    <title>W05 Product Review Form</title>
+    <meta name="description" content="W05 Product Review form for submitting a review and rating of a product.">
+    <meta name="author" content="Stallone Adu Baffour">
 
-  <style>
-    /* Color Scheme Used on Document
-       Primary: #0A3760 (navy blue)
-       Accent:  #F4B400 (gold)
-       Background: #FFFFFF (white)
-    */
+    <!-- GOOGLE FONTS (Montserrat) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
 
-    :root {
-      --primary-color: #0A3760;
-      --accent-color: #F4B400;
-      --background-color: #FFFFFF;
-    }
+    <!-- EXTERNAL CSS ONLY -->
+    <link rel="stylesheet" href="styles/form.css">
+  </head>
+  <body>
+    <header>
+      <h1>Product Review</h1>
+      <p class="tagline">Share your experience with the product.</p>
+    </header>
 
-    * {
-      box-sizing: border-box;
-    }
+    <main>
+      <!-- REQUIRED: ONE form WITH method="get" AND action="review.html" -->
+      <form method="get" action="review.html">
+        <!-- PRODUCT SELECT (REQUIRED BY ASSIGNMENT) -->
+        <fieldset>
+          <legend>Product Information</legend>
 
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif; /* Body font */
-      background-color: var(--background-color);
-      color: var(--primary-color);
-      line-height: 1.6;
-    }
+          <div class="form-control">
+            <label for="product">Product</label>
+            <select id="product" name="product" required>
+              <option value="">Choose a product…</option>
+              <option value="mlg-shipping">Multi-Logistics Ghana – Shipping Service</option>
+              <option value="mlg-clearance">Multi-Logistics Ghana – Port Clearance</option>
+              <option value="mlg-tracking">Multi-Logistics Ghana – Tracking Portal</option>
+              <option value="other">Other Product</option>
+            </select>
+          </div>
 
-    header {
-      background-color: var(--primary-color);
-      color: var(--background-color);
-      padding: 1.5rem;
-      text-align: center;
-    }
+          <!-- DATE INPUT (REQUIRED) -->
+          <div class="form-control">
+            <label for="review-date">Date of Review</label>
+            <input type="date" id="review-date" name="reviewDate" required>
+          </div>
 
-    header h1 {
-      margin: 0;
-      font-family: "Montserrat", sans-serif; /* Heading font */
-      font-size: 1.8rem;
-    }
+          <!-- OPTIONAL: USER NAME -->
+          <div class="form-control">
+            <label for="user-name">Your Name (optional)</label>
+            <input type="text" id="user-name" name="userName" placeholder="Enter your name">
+          </div>
+        </fieldset>
 
-    header p {
-      margin: 0.3rem 0 0;
-      font-size: 0.95rem;
-    }
+        <!-- RADIO BUTTONS (5 REQUIRED) -->
+        <fieldset>
+          <legend>Overall Rating</legend>
+          <p class="hint">Select one rating from 1 (Poor) to 5 (Excellent).</p>
 
-    main {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem 3rem;
-    }
+          <div class="rating-group">
+            <div class="radio-control">
+              <input type="radio" id="rating1" name="rating" value="1" required>
+              <label for="rating1">1 – Poor</label>
+            </div>
 
-    h2 {
-      font-family: "Montserrat", sans-serif; /* Heading font */
-      border-left: 5px solid var(--accent-color);
-      padding-left: 0.5rem;
-      margin-top: 2rem;
-      margin-bottom: 0.75rem;
-      font-size: 1.4rem;
-    }
+            <div class="radio-control">
+              <input type="radio" id="rating2" name="rating" value="2">
+              <label for="rating2">2 – Fair</label>
+            </div>
 
-    h3 {
-      font-family: "Montserrat", sans-serif;
-      margin-top: 1.2rem;
-      font-size: 1.1rem;
-    }
+            <div class="radio-control">
+              <input type="radio" id="rating3" name="rating" value="3">
+              <label for="rating3">3 – Good</label>
+            </div>
 
-    p {
-      margin: 0.4rem 0;
-    }
+            <div class="radio-control">
+              <input type="radio" id="rating4" name="rating" value="4">
+              <label for="rating4">4 – Very Good</label>
+            </div>
 
-    .section-box {
-      border: 1px solid #d0d0d0;
-      padding: 1rem;
-      border-radius: 6px;
-      background-color: #f9fafb;
-    }
+            <div class="radio-control">
+              <input type="radio" id="rating5" name="rating" value="5">
+              <label for="rating5">5 – Excellent</label>
+            </div>
+          </div>
+        </fieldset>
 
-    .highlight {
-      color: var(--accent-color);
-      font-weight: bold;
-    }
+        <!-- CHECKBOXES (AT LEAST 4 REQUIRED) -->
+        <fieldset>
+          <legend>Features Used</legend>
+          <p class="hint">Check all the features you used.</p>
 
-    ul {
-      margin: 0.5rem 0 0.5rem 1.2rem;
-    }
+          <div class="checkbox-group">
+            <div class="checkbox-control">
+              <input type="checkbox" id="feature-ease" name="features" value="ease-of-use">
+              <label for="feature-ease">Ease of Use</label>
+            </div>
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 0.5rem 0 1rem;
-      font-size: 0.95rem;
-    }
+            <div class="checkbox-control">
+              <input type="checkbox" id="feature-performance" name="features" value="performance">
+              <label for="feature-performance">Performance</label>
+            </div>
 
-    th,
-    td {
-      border: 1px solid #d0d0d0;
-      padding: 0.5rem;
-      text-align: left;
-    }
+            <div class="checkbox-control">
+              <input type="checkbox" id="feature-design" name="features" value="design">
+              <label for="feature-design">Design / Layout</label>
+            </div>
 
-    th {
-      background-color: var(--primary-color);
-      color: var(--background-color);
-      font-family: "Montserrat", sans-serif;
-    }
+            <div class="checkbox-control">
+              <input type="checkbox" id="feature-support" name="features" value="support">
+              <label for="feature-support">Customer Support</label>
+            </div>
 
-    .code-block {
-      background-color: #111827;
-      color: #e5e7eb;
-      padding: 0.75rem;
-      border-radius: 6px;
-      font-family: "Courier New", monospace;
-      font-size: 0.85rem;
-      overflow-x: auto;
-      margin: 0.5rem 0 1rem;
-    }
+            <div class="checkbox-control">
+              <input type="checkbox" id="feature-price" name="features" value="price">
+              <label for="feature-price">Price / Value</label>
+            </div>
+          </div>
+        </fieldset>
 
-    .wireframe {
-      background-color: #f3f4f6;
-      border-radius: 6px;
-      padding: 0.75rem;
-      margin: 0.5rem 0 1.2rem;
-    }
+        <!-- TEXTAREA (REQUIRED) -->
+        <fieldset>
+          <legend>Written Review</legend>
 
-    .wireframe pre {
-      margin: 0;
-      font-family: "Courier New", monospace;
-      font-size: 0.85rem;
-    }
+          <div class="form-control">
+            <label for="review-text">Your Review</label>
+            <textarea
+              id="review-text"
+              name="reviewText"
+              rows="5"
+              placeholder="Describe your experience with this product…"
+              required
+            ></textarea>
+          </div>
+        </fieldset>
 
-    .badge {
-      display: inline-block;
-      background-color: var(--accent-color);
-      color: #111827;
-      padding: 0.2rem 0.6rem;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      font-family: "Montserrat", sans-serif;
-      margin-left: 0.3rem;
-    }
+        <!-- SUBMIT BUTTON (REQUIRED) -->
+        <div class="form-control submit-row">
+          <button type="submit">Submit Review</button>
+        </div>
+      </form>
+    </main>
 
-    footer {
-      text-align: center;
-      font-size: 0.8rem;
-      padding: 1rem;
-      border-top: 1px solid #d0d0d0;
-      color: #4b5563;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Website Planning Document</h1>
-    <p>Project: <strong>Multi-Logistics Ghana</strong> &bull; Course: WDD 131</p>
-  </header>
+    <footer>
+      <p>&copy; <span id="year"></span> Product Review – WDD 131</p>
+    </footer>
 
-  <main>
-    <!-- 1. Naming Conventions -->
-    <section class="section-box">
-      <h2>1. Naming Conventions</h2>
-      <p>
-        All files and folders follow the course naming conventions:
-        lowercase letters, no spaces, and hyphens where needed.
-      </p>
-
-      <h3>Proposed Folder &amp; File Structure</h3>
-      <div class="code-block">
-<pre>wdd131/
-└── multi-logistics/
-    ├── index.html
-    ├── about.html
-    ├── services.html
-    ├── contact.html
-    ├── images/
-    │   ├── logo.webp
-    │   └── hero-port.webp
-    ├── styles/
-    │   └── styles.css
-    └── scripts/
-        └── main.js
-</pre>
-      </div>
-      <p>
-        Example HTML reference to the stylesheet:
-      </p>
-      <div class="code-block">
-<pre>&lt;link rel="stylesheet" href="styles/styles.css"&gt;</pre>
-      </div>
-    </section>
-
-    <!-- 2 & 3. Validation -->
-    <section class="section-box">
-      <h2>2. HTML Validation</h2>
-      <p>
-        The website pages (such as <span class="highlight">index.html</span>) will be
-        checked using the W3C HTML Validator at
-        <a href="https://validator.w3.org/nu" target="_blank" rel="noopener noreferrer">
-          https://validator.w3.org/nu
-        </a>.
-      </p>
-      <p>
-        My goal is to have <span class="highlight">zero HTML errors</span> reported by
-        the validator. Any warnings will be reviewed and corrected as needed.
-      </p>
-
-      <h2>3. CSS Validation</h2>
-      <p>
-        The stylesheet (<span class="highlight">styles/styles.css</span>) will be checked
-        using the W3C CSS Validator at
-        <a href="https://jigsaw.w3.org/css-validator/" target="_blank" rel="noopener noreferrer">
-          https://jigsaw.w3.org/css-validator/
-        </a>.
-      </p>
-      <p>
-        My goal is to have <span class="highlight">no CSS errors</span>. Any warnings will be
-        reviewed and corrected when appropriate.
-      </p>
-    </section>
-
-    <!-- 4. Site Name -->
-    <section class="section-box">
-      <h2>4. Site Name</h2>
-      <p>
-        <strong>Site Name:</strong> <span class="highlight">Multi-Logistics Ghana</span>
-      </p>
-      <p>
-        I chose this name because it clearly describes the main focus of the company:
-        providing logistics, shipping, import, and export services in and out of Ghana.
-        It sounds professional and trustworthy to potential clients and businesses.
-      </p>
-    </section>
-
-    <!-- 5. Site Purpose -->
-    <section class="section-box">
-      <h2>5. Site Purpose</h2>
-      <p>
-        The primary purpose of the Multi-Logistics Ghana website is to introduce our logistics
-        company and make it easy for customers to:
-      </p>
-      <ul>
-        <li>Learn about our shipping, freight forwarding, and port clearance services.</li>
-        <li>Understand how to import vehicles, goods, and containers into Ghana.</li>
-        <li>Request a quote or ask questions using an online contact form.</li>
-        <li>Find our office contact details and operating locations (e.g., Tema Port).</li>
-      </ul>
-    </section>
-
-    <!-- 6. Scenarios -->
-    <section class="section-box">
-      <h2>6. Scenarios (User Tasks)</h2>
-      <p>
-        These scenario questions reflect what real visitors to the site might want to do:
-      </p>
-      <ul>
-        <li>
-          <strong>Scenario 1:</strong> “How can I ship a car from the USA to Ghana, and how
-          much will it cost me through Multi-Logistics Ghana?”
-        </li>
-        <li>
-          <strong>Scenario 2:</strong> “Can Multi-Logistics Ghana help me clear my container
-          at Tema Port and handle all the customs paperwork?”
-        </li>
-        <li>
-          <strong>Scenario 3:</strong> “Is there a way to contact Multi-Logistics Ghana online
-          to request a quote or talk to a staff member?”
-        </li>
-      </ul>
-    </section>
-
-    <!-- 7 & 8. Color Schema -->
-    <section class="section-box">
-      <h2>7. Color Scheme</h2>
-      <p>
-        The website will use the following color scheme:
-      </p>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Color</th>
-            <th>Hex Value</th>
-            <th>Usage</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Primary (Navy Blue)</td>
-            <td><code>#0A3760</code></td>
-            <td>Header background, navigation bar, headings, and key icons.</td>
-          </tr>
-          <tr>
-            <td>Accent (Gold)</td>
-            <td><code>#F4B400</code></td>
-            <td>Call-to-action buttons, highlights, and important links.</td>
-          </tr>
-          <tr>
-            <td>Background (White)</td>
-            <td><code>#FFFFFF</code></td>
-            <td>Page background and main content areas for good readability.</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h2>8. Color Scheme Used in This Document</h2>
-      <p>
-        This planning document already uses the color scheme described above:
-      </p>
-      <ul>
-        <li>
-          The header and section titles use the <span class="highlight">primary navy blue</span>.
-        </li>
-        <li>
-          Important accents, badges, and highlights (like this word
-          <span class="highlight">highlight</span>) use the gold accent color.
-        </li>
-        <li>
-          The page background is white to match the planned website background.
-        </li>
-      </ul>
-      <p>
-        This shows how the color palette will look on the final website.
-      </p>
-    </section>
-
-    <!-- 9 & 10. Typography -->
-    <section class="section-box">
-      <h2>9. Typography</h2>
-      <p>
-        The website will use two main fonts:
-      </p>
-      <table>
-        <thead>
-          <tr>
-            <th>Font</th>
-            <th>Type</th>
-            <th>Usage</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Montserrat</td>
-            <td>Sans-serif (Google Font)</td>
-            <td>Headings, navigation links, and call-to-action buttons.</td>
-          </tr>
-          <tr>
-            <td>Arial</td>
-            <td>Sans-serif (web-safe)</td>
-            <td>Paragraph text, lists, and general body content.</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h2>10. Typography Used in This Document</h2>
-      <p>
-        This planning document imports <span class="highlight">Montserrat</span> from Google Fonts
-        and uses it on headings (h1, h2, h3) and some accent elements.
-      </p>
-      <p>
-        The body text uses <span class="highlight">Arial</span>, which matches the typography
-        that will be used on the final website pages.
-      </p>
-      <p>
-        This provides a preview of how the text will look on the finished site.
-      </p>
-    </section>
-
-    <!-- 11. Wireframes -->
-    <section class="section-box">
-      <h2>11. Home Page Wireframes</h2>
-      <p>
-        The following wireframes represent the planned layout of the <strong>home page</strong>
-        for both mobile and larger (desktop) viewports.
-      </p>
-
-      <h3>Mobile Wireframe <span class="badge">Small Viewport</span></h3>
-      <div class="wireframe">
-        <pre>
-------------------------------------
-|            LOGO                  |
-------------------------------------
-|  ☰  (Hamburger Menu Icon)       |
-------------------------------------
-|   HERO IMAGE / BACKGROUND       |
-|   "Ship &amp; Clear Your Cargo" |
-|   [ Request a Quote ]           |
-------------------------------------
-|   SERVICES (Stacked Cards)      |
-|   - Vehicle Shipping            |
-|   - Container Clearance         |
-|   - Import / Export             |
-------------------------------------
-|   SHORT ABOUT TEXT              |
-------------------------------------
-|   CONTACT BUTTON                |
-|   [ Contact Us ]                |
-------------------------------------
-|           FOOTER                |
-|  © Multi-Logistics Ghana        |
-------------------------------------
-        </pre>
-      </div>
-
-      <h3>Desktop Wireframe <span class="badge">Large Viewport</span></h3>
-      <div class="wireframe">
-        <pre>
------------------------------------------------------------------
-| LOGO (left)             |      NAV LINKS (right)              |
-| Multi-Logistics Ghana   |  Home | Services | About | Contact  |
------------------------------------------------------------------
-|                     HERO SECTION                               |
-|  Large background image of port / shipping                     |
-|  Headline: "We Move Your Cargo Smoothly"                       |
-|  Subtext: Short description                                   |
-|  [ Request a Quote ]  [ Learn More ]                           |
------------------------------------------------------------------
-|                    SERVICES SECTION (3 columns)                |
-|  [ Vehicle Shipping ]  [ Container Clearance ]  [ Customs ]    |
-|  Each card has icon + short text                              |
------------------------------------------------------------------
-|                    ABOUT / WHY CHOOSE US                       |
-|  Short paragraph and bullet list                              |
------------------------------------------------------------------
-|                    CONTACT SECTION                             |
-|  Simple form: Name, Email, Phone, Message, Submit Button      |
------------------------------------------------------------------
-|                           FOOTER                               |
-|  © Multi-Logistics Ghana | Phone | Email | Social Icons       |
------------------------------------------------------------------
-        </pre>
-      </div>
-      <p>
-        These sketches show the basic structure and content areas. The actual design will
-        follow this plan while adding real images, icons, and final styling.
-      </p>
-    </section>
-  </main>
-
-  <footer>
-    Website Planning Document &mdash; Multi-Logistics Ghana &mdash; WDD 131
-  </footer>
-</body>
+    <!-- EXTERNAL JS FILE ONLY -->
+    <script src="scripts/review.js" defer></script>
+  </body>
 </html>
